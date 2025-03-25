@@ -1,0 +1,14 @@
+[project]
+name = "multi-tenants-django"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "django-cleanup>=9.0.0",
+    "django>=5.1.7",
+    "psycopg2-binary>=2.9.10",
+    "django-htmx>=1.23.0",
+    "django-allauth>=65.5.0",
+    "pillow>=11.1.0",
+]

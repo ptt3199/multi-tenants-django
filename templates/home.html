@@ -3,7 +3,25 @@
 {% block content %} 
 
     <div class="max-w-4xl mx-auto px-8 py-24">
-        <h1>New Project</h1>
+        <h1>Most Popular:</h1>
+        <ul id="item-list">
+            {% for item in items %}
+                <li>{{ item.name }}</li>
+            {% endfor %}
+        </ul>
+
+        <form
+            hx-post="{% url 'create-item' %}"
+            hx-target="#item-list"
+            hx-swap="beforeend"
+            _="on htmx:afterRequest reset() me"
+        >
+            {% csrf_token %}
+            <div class="flex gap-5 max-w-lg">
+                <input type="text" name="name" placeholder="Add Item" autofocus />
+                <button type="submit">Submit</button>
+            </div>
+        </form>
     </div>
 
 {% endblock %}
